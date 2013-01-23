@@ -31,19 +31,19 @@ package
 
 			unittests = new TestRunner();
 			stage.addChild(unittests);
-			unittests.start(org.casualintellect.script.tests.ScriptTestSuite, null, TestRunner.SHOW_TRACE);
+			unittests.start(org.casualintellect.script.tests.ScriptTestSuite, null, TestRunner.SUCCESS_EXIT);
 
 			unittests = new TestRunner();
 			stage.addChild(unittests);
-			unittests.start(org.casualintellect.xmlparsing.test.ParserTestSuite, null, TestRunner.SHOW_TRACE);
+			unittests.start(org.casualintellect.xmlparsing.test.ParserTestSuite, null, TestRunner.SUCCESS_EXIT);
 
 			unittests = new TestRunner();
 			stage.addChild(unittests);
-			unittests.start(RobotsTestSuite, null, TestRunner.SHOW_TRACE);
+			unittests.start(RobotsTestSuite, null, TestRunner.SUCCESS_EXIT);
 
 			unittests = new TestRunner();
 			stage.addChild(unittests);
-			unittests.start(StatesTestSuite, null, TestRunner.SHOW_TRACE);
+			unittests.start(StatesTestSuite, null, TestRunner.SUCCESS_EXIT);
 
 		}
 

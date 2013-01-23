@@ -32,6 +32,7 @@ package com.robots.tests
 			_states[SimpleBee.CLASS_NAME] = classNameStates;
 			_statesProcessor = StatesProcessor.statesProcessor;
 			_statesProcessor.states = _states;
+			_beeController = BeeController.instance;
 			
 			var opContainer:OperationsContainer = new OperationsContainer();
 			opContainer.addFunction("finishMoving", _beeController.endMoveCondition);
@@ -49,6 +50,7 @@ package com.robots.tests
 		
 		public function testProcessStates():void {
 			
+			assertEquals("test process states",true,true)
 		}
 		
 	}

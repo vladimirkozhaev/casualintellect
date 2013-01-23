@@ -17,10 +17,7 @@ package org.casualintellect.script.tests
 		}
 		
 		
-		public function helloWorldTest():void {
-			assertEquals(true,true);
-		}
-		
+				
 		public function operationsTest():void {
 			assertEquals(ScriptInterpreter.instance.operations.length, 3);
 			assertTrue(ScriptInterpreter.instance.operations.indexOf(ScriptInterpreter.AND) >= 0);

@@ -12,7 +12,6 @@ package org.casualintellect.script.tests
 		public function ScriptTestSuite() 
 		{
 			super();
-			this.addTest(new ScriptTestCase("helloWorldTest"));
 			this.addTest(new ScriptTestCase("operationsTest"));
 			this.addTest(new ScriptTestCase("splitOperationsTest"));
 			this.addTest(new ScriptTestCase("reversePolishNotationTest"));

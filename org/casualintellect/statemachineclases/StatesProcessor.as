@@ -70,7 +70,6 @@ package org.casualintellect.statemachineclases
 					var result:Boolean = ScriptInterpreter.instance.processReversedPolishNotationStack(operationsContainer, useCase.roole.reversePolishNotation, new Array(stateObject));
 					
 					if (result) {
-						trace("change state:",useCase.newStateName);
 						changeState(stateObject, useCase,state);
 						return;
 					}
