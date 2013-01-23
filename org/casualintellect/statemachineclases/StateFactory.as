@@ -1,6 +1,7 @@
 package org.casualintellect.statemachineclases 
 {
 	import flash.utils.Dictionary;
+	import org.casualintellect.Keywords;
 	import org.casualintellect.xmlparsing.XmlDescriptionsParser;
 	/**
 	 * @author vkozhaev
@@ -12,7 +13,9 @@ package org.casualintellect.statemachineclases
 		{
 			
 		}
-		private static const STATE_METHODS:Array =new Array(XmlDescriptionsParser.METHODS_AFTER, XmlDescriptionsParser.METHODS_BEFORE, XmlDescriptionsParser.METHODS_IN_PROCESS);
+		
+		
+		private static const STATE_METHODS:Array =new Array(Keywords.METHODS_AFTER, Keywords.METHODS_BEFORE, Keywords.METHODS_IN_PROCESS);
 		
 		public static function createState(stateXML:XML):State {
 			var state:State = new State();
@@ -20,7 +23,7 @@ package org.casualintellect.statemachineclases
 			state.name = stateXML.@name;
 			state.conditions = new Dictionary();
 			
-			var usecasesList:XMLList = (stateXML.child(XmlDescriptionsParser.USECASES)[0] as XML).children();
+			var usecasesList:XMLList = (stateXML.child(Keywords.USECASES)[0] as XML).children();
 			
 			
 			for each (var usecaseXML:XML in usecasesList) {
@@ -28,7 +31,7 @@ package org.casualintellect.statemachineclases
 				state.conditions[useCase.newStateName] = useCase;
 			}
 			
-			var stateMethods:XML = stateXML.child(XmlDescriptionsParser.STATE_METHODS)[0];
+			var stateMethods:XML = stateXML.child(Keywords.STATE_METHODS)[0];
 			if (stateMethods != null) {
 				for each (var methodsType:String in STATE_METHODS) {
 					var methodsTypeXml:XML = stateMethods.child(methodsType)[0];

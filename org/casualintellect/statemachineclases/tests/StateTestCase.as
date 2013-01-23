@@ -3,6 +3,7 @@ package org.casualintellect.statemachineclases.tests
 	import asunit.framework.TestCase;
 	import com.robots.states.StatesXML;
 	import flash.utils.Dictionary;
+	import org.casualintellect.IDSLexer;
 	import org.casualintellect.script.OperationsContainer;
 	import org.casualintellect.statemachineclases.IStateObject;
 	import org.casualintellect.statemachineclases.State;
@@ -85,8 +86,8 @@ package org.casualintellect.statemachineclases.tests
 		public function StateTestCase(testMethod:String = null) 
 		{
 			super(testMethod)
-			
-			var classNameStates:Dictionary = XmlDescriptionsParser.parseStatesXML(SIMPLE_BEE_STATES);
+			var dsScript:IDSLexer = new XmlDescriptionsParser();
+			var classNameStates:Dictionary = dsScript.parseScript(SIMPLE_BEE_STATES);
 			_states = new Dictionary(true);
 			_states["className"] = classNameStates;
 			_statesProcessor = StatesProcessor.statesProcessor;

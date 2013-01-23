@@ -5,6 +5,7 @@ package com.robots.tests
 	import com.robots.model.SimpleBee;
 	import com.robots.states.StatesXML;
 	import flash.utils.Dictionary;
+	import org.casualintellect.IDSLexer;
 	import org.casualintellect.script.OperationsContainer;
 	import org.casualintellect.statemachineclases.StatesProcessor;
 	import org.casualintellect.xmlparsing.XmlDescriptionsParser;
@@ -25,8 +26,8 @@ package com.robots.tests
 		{
 			super(testMethod);
 			
-			
-			var classNameStates:Dictionary = XmlDescriptionsParser.parseStatesXML(StatesXML.SIMPLE_BEE_STATES);
+			var dslLexer:IDSLexer = new XmlDescriptionsParser();
+			var classNameStates:Dictionary = dslLexer.parseScript(StatesXML.SIMPLE_BEE_STATES);
 			_states = new Dictionary(true);
 			
 			_states[SimpleBee.CLASS_NAME] = classNameStates;

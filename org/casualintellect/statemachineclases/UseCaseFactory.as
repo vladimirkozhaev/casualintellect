@@ -1,5 +1,6 @@
 package org.casualintellect.statemachineclases 
 {
+	import org.casualintellect.Keywords;
 	import org.casualintellect.script.ScriptInterpreter;
 	import org.casualintellect.xmlparsing.XmlDescriptionsParser;
 	/**
@@ -26,7 +27,8 @@ package org.casualintellect.statemachineclases
 				errNum++;
 				useCase.functions = new Vector.<String>();
 				errNum++;
-				var methodsList:XMLList = (useCaseXML.child(XmlDescriptionsParser.METHODS)[0] as XML).children();
+				
+				var methodsList:XMLList = (useCaseXML.child(Keywords.METHODS)[0] as XML).children();
 				errNum++;
 				for each (var methodXML:XML in methodsList) {
 					var methodName:String = methodXML.@name;
@@ -35,7 +37,7 @@ package org.casualintellect.statemachineclases
 				errNum++;
 				var roole:Roole = new Roole();
 				errNum++;
-				var rooleXml:String = (useCaseXML.child(XmlDescriptionsParser.ROOLE)[0] as XML) + "";
+				var rooleXml:String = (useCaseXML.child(Keywords.ROOLE)[0] as XML) + "";
 				errNum++;				
 				roole.reversePolishNotation = ScriptInterpreter.instance.makeReversedPolishNotation(rooleXml);
 				errNum++;

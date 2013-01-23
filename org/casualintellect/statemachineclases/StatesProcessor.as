@@ -1,9 +1,9 @@
 package org.casualintellect.statemachineclases 
 {
 	import flash.utils.Dictionary;
+	import org.casualintellect.Keywords;
 	import org.casualintellect.script.OperationsContainer;
 	import org.casualintellect.script.ScriptInterpreter;
-	import org.casualintellect.xmlparsing.XmlDescriptionsParser;
 	/**
 	 * ...
 	 * @author vkozhaev
@@ -75,7 +75,7 @@ package org.casualintellect.statemachineclases
 					}
 				}
 				i++;
-				var methodNames:Vector.<String> = state.getMethods(XmlDescriptionsParser.METHODS_IN_PROCESS);
+				var methodNames:Vector.<String> = state.getMethods(Keywords.METHODS_IN_PROCESS);
 				i++;
 				for each (var fName:String in methodNames) 
 				{
@@ -99,13 +99,13 @@ package org.casualintellect.statemachineclases
 				applyFuncsToStateObject(stateObject, useCaseFunctions);
 				errNum++;
 				
-				var methodsAfter:Vector.<String> = state.getMethods(XmlDescriptionsParser.METHODS_AFTER);
+				var methodsAfter:Vector.<String> = state.getMethods(Keywords.METHODS_AFTER);
 				errNum++;
 				applyFuncsToStateObject(stateObject,methodsAfter)		
 				errNum++;
 				stateObject.state = useCase.newStateName;
 				var newState:State=concreteStates[useCase.newStateName];
-				var methodsBefore:Vector.<String> = newState.getMethods(XmlDescriptionsParser.METHODS_BEFORE);
+				var methodsBefore:Vector.<String> = newState.getMethods(Keywords.METHODS_BEFORE);
 				
 				applyFuncsToStateObject(stateObject,methodsBefore)		
 			}catch (err:Error)

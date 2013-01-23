@@ -2,6 +2,7 @@ package org.casualintellect.xmlparsing.test
 {
 	import asunit.framework.TestCase;
 	import flash.utils.Dictionary;
+	import org.casualintellect.IDSLexer;
 	import org.casualintellect.xmlparsing.XmlDescriptionsParser;
 	
 	
@@ -155,8 +156,8 @@ package org.casualintellect.xmlparsing.test
 		}
 		
 		public function testParsing():void {
-			
-			var states:Dictionary = XmlDescriptionsParser.parseStatesXML(STATES_1);
+			var dslLexer:IDSLexer = new XmlDescriptionsParser();
+			var states:Dictionary = dslLexer.parseScript(STATES_1.toXMLString());
 			
 			assertNotNull(states["statea"])
 			assertNotNull(states["stateb"])

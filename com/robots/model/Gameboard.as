@@ -8,6 +8,7 @@ package com.robots.model
 	import flash.events.TimerEvent;
 	import flash.utils.Dictionary;
 	import flash.utils.Timer;
+	import org.casualintellect.IDSLexer;
 	import org.casualintellect.script.OperationsContainer;
 	import org.casualintellect.statemachineclases.StatesProcessor;
 	import org.casualintellect.xmlparsing.XmlDescriptionsParser;
@@ -109,7 +110,8 @@ package com.robots.model
 		private function initStMachine():void 
 		{
 		
-			var classNameStates:Dictionary = XmlDescriptionsParser.parseStatesXML(StatesXML.SIMPLE_BEE_STATES);
+			var dslexer:IDSLexer = new XmlDescriptionsParser();
+			var classNameStates:Dictionary = dslexer.parseScript(StatesXML.SIMPLE_BEE_STATES.toXMLString());
 			
 			var states:Dictionary = new Dictionary(true);
 			
